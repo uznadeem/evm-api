@@ -52,7 +52,7 @@ class EventsController < ApplicationController
     def set_event
       @event = Event.find_by(id: params[:id])
 
-      render json: { error: "Can't find event" }, status: :unprocessable_entity
+      render json: { error: "Can't find event" }, status: :unprocessable_entity unless @event
     end
 
     def event_params
