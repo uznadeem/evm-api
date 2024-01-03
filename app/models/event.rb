@@ -6,7 +6,7 @@ class Event < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: Constants::NAME_SIZE }
   validates :start_time, presence: true, length: { maximum: Constants::DESCRIPTION }
-  validates :end_time, presence: true, after_date: :start_time
+  validates :end_time, presence: true, after_time: :start_time
 
   has_one_attached :image
 end

@@ -1,10 +1,12 @@
-class AfterDateValidator < ActiveModel::EachValidator
+class AfterTimeValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     return if value.blank?
 
-    other_date = record.public_send(options.fetch(:with))
+    compared_with = record.public_send(options.fetch(:with))
 
-    if value < other_date
+    return if compared_with.blank?
+
+    if value <= compared_with
       record.errors.add(attribute, (options[:message] || "must be after #{options[:with].to_s.humanize}"))
     end
   end

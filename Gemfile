@@ -18,4 +18,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+gem 'active_model_serializers', '~> 0.10.12'
 gem 'devise_token_auth', '~> 1.2'
+gem 'pundit', '~> 2.1', '>= 2.1.1'
